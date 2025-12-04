@@ -30,7 +30,7 @@ jobs:
       # Шаг 3: Запуск тестов и генерация отчета о покрытии
       - name: Run tests and generate coverage report
         run: |
-          pytest --cov=gendiff --cov-report=xml
+          pytest --cov=gendiff.generate --cov-report=xml
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
         env:
