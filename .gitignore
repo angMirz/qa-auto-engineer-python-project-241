@@ -1,0 +1,11 @@
+# Python-generated files
+*.egg-info
+__pycache__
+dist/
+build/
+
+# Virtual environments
+.venv
+.ruff_cache
+.pytest_cache
+demo/
