@@ -36,6 +36,6 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-        run: |
-          sonar-scanner \
-          -Dsonar.inclusions=gendiff.generate
+        with:
+          args: >
+            -Dsonar.inclusions=gendiff/generate.py
