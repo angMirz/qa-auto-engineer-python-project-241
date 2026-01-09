@@ -1,0 +1,6 @@
+import json
+
+
+def format_json(diff):
+    return json.dumps(diff, indent=2)
+    # indent для красивого формала json
