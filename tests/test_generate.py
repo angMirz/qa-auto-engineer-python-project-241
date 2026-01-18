@@ -30,7 +30,9 @@ def file2_yaml_path():
 
 # Функция для чтения содержимого файла
 def read_expected_diff(filename):
-    with open(os.path.join(TEST_DATA_DIR, filename), 'r', encoding='utf-8') as f:
+    with open(
+        os.path.join(TEST_DATA_DIR, filename), 'r', encoding='utf-8'
+    ) as f:
         return f.read().strip()  # Убираем лишние пробелы в начале и конце
 
 
