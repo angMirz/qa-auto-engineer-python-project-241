@@ -40,9 +40,11 @@ jobs:
         uses: SonarSource/sonarqube-scan-action@v6
         env:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
         with:
           args: >
             -Dsonar.projectKey=${{ github.repository }}
+            -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
             -Dsonar.inclusions=gendiff/scripts/generate.py
             -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.python.version=3.10
