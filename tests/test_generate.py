@@ -31,10 +31,10 @@ def file2_yaml_path():
 # Функция для чтения содержимого файла
 def read_expected_diff(filename):
     with open(os.path.join(TEST_DATA_DIR, filename), 'r', encoding='utf-8') as f:
-        return f.read().strip()  # Убираем лишние пробелы в начале и конце строки
+        return f.read().strip()  # Убираем лишние пробелы в начале и конце
 
 
-# Нормализуем строки по отдельности : разбиваем на строки, убираем у каждой пробелы
+# Нормаk-ем строки по отдел-сти : разбиваем на строки, убираем у каждой пробелы
 def normalize(diff: str) -> list[str]:
     return [line.strip() for line in diff.splitlines() if line.strip()]
 

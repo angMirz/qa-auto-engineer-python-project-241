@@ -43,7 +43,7 @@ jobs:
           SONAR_ORGANIZATION: ${{ secrets.SONAR_ORGANIZATION }}
         with:
           args: >
-            -Dsonar.projectKey=qa-auto-engineer-python-project-241
+            -Dsonar.projectKey=angMirz_qa-auto-engineer-python-project-241
             -Dsonar.organization=${{ secrets.SONAR_ORGANIZATION }}
             -Dsonar.inclusions=gendiff/scripts/generate.py
             -Dsonar.python.coverage.reportPaths=coverage.xml
