@@ -9,3 +9,12 @@ build/
 .ruff_cache
 .pytest_cache
 demo/
+main.py
+
+# Coverage \ upd project
+buildold.yml
+python-app.yml
+
+.coverage
+coverage.xml
+sonar-project.properties

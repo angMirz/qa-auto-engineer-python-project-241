@@ -1,14 +1,17 @@
 name: Build
+
 on:
   push:
-    branches:
+    branches: 
       - main
   pull_request:
     types: [opened, synchronize, reopened]
+
 jobs:
   sonarqube:
-    name: SonarQube
+    name: SonarQube + Coverage
     runs-on: ubuntu-latest
+
     steps:
       - uses: actions/checkout@v4
         with:
@@ -21,13 +24,11 @@ jobs:
 
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install coverage pytest PyYAML
+          python3 -m pip install --upgrade pip
+          pip install pytest coverage PyYAML
 
       - name: Run tests with coverage
-        run: |
-          coverage run -m pytest
-          coverage xml
+        run: make test-coverage
 
       - name: SonarQube Scan
         uses: SonarSource/sonarqube-scan-action@v6
@@ -35,35 +36,7 @@ jobs:
           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
         with:
           args: >
-            -Dsonar.inclusions=gendiff/generate.py
+            -Dsonar.projectKey=${{ github.repository }}
+            -Dsonar.inclusions=gendiff/scripts/generate.py
             -Dsonar.python.coverage.reportPaths=coverage.xml
             -Dsonar.python.version=3.10
-
-# name: Build
-# on:
-#   push:
-#     branches:
-#       - main
-#   pull_request:
-#     types: [opened, synchronize, reopened]
-# jobs:
-#   sonarqube:
-#     name: SonarQube
-#     runs-on: ubuntu-latest
-#     steps:
-#       - uses: actions/checkout@v4
-#         with:
-#           fetch-depth: 0  # Shallow clones should be disabled for a better relevancy of analysis
-#       - name: Set up Python
-#         uses: actions/setup-python@v4
-#         with:
-#           python-version: '3.10'
-#       - name: SonarQube Scan
-#         uses: SonarSource/sonarqube-scan-action@v6
-#         env:
-#           SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
-#         with:
-#           args: >
-#             -Dsonar.inclusions=gendiff/generate.py
-#             -Dsonar.python.coverage.reportPaths=coverage.xml
-#             -Dsonar.python.version=3.10

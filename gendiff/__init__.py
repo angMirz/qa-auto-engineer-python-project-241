@@ -1,3 +1,3 @@
-from .generate import generate_diff
+from .scripts.generate import generate_diff
 
 __all__ = ("generate_diff",)

@@ -12,9 +12,9 @@
 [![Coverage](https://sonarcloud.io/api/project_badges/measure?project=angMirz_qa-auto-engineer-python-project-241&metric=coverage)](https://sonarcloud.io/summary/new_code?id=angMirz_qa-auto-engineer-python-project-241)
 
 ## Project structure
-**`gendiff/generate.py`** - функция `generate_diff` формирует структуру различий (diff) между двумя файлами.
-**`gendiff/parser.py`**  - модуль для чтения и парсинга файлов формата json и yml.
-**`gendiff/diff_builder.py`** - модуль для формирования структуры diff между двумя объектами.  
+**`gendiff/scripts/generate.py`** - функция `generate_diff` формирует структуру различий (diff) между двумя файлами.
+**`gendiff/scripts/parser.py`**  - модуль для чтения и парсинга файлов формата json и yml.
+**`gendiff/scripts/diff_builder.py`** - модуль для формирования структуры diff между двумя объектами.  
 **`gendiff/formatters/..`** - форматеры json, plain, stylish.
 **`gendiff/scripts/gendiff.py`** — CLI-скрипт
 
